@@ -4,6 +4,8 @@ Run unity from VSCode.
 
 Press `cmd+p`, then activate Unity Window and run unity scene.
 
+![example.gif](example.gif)
+
 
 # Install
 
