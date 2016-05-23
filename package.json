@@ -1,0 +1,37 @@
+{
+    "name": "unity-runner",
+    "displayName": "unity-runner",
+    "description": "run unity",
+    "version": "0.1.0",
+    "publisher": "katapad",
+    "engines": {
+        "vscode": "^1.1.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.runUnity"
+    ],
+    "main": "./out/src/extension",
+    "contributes": {
+        "commands": [{
+            "command": "extension.runUnity",
+            "title": "Run Unity"
+        }],
+        "keybindings": [{
+            "command": "extension.runUnity",
+            "key": "ctrl+p",
+            "mac": "cmd+p"
+        }]
+    },
+    "scripts": {
+        "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+        "compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install"
+    },
+    "devDependencies": {
+        "typescript": "^1.8.5",
+        "vscode": "^0.11.0"
+    }
+}
