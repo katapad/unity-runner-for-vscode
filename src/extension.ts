@@ -12,13 +12,17 @@ export function activate(context: vscode.ExtensionContext) {
     // Use the console to output diagnostic information (console.log) and errors (console.error)
     // This line of code will only be executed once when your extension is activated
     console.log('Congratulations, your extension "unity-runner" is now active!');
-     
+    
+    
     let disposable = vscode.commands.registerCommand('extension.runUnity', () => {
+      vscode.commands.executeCommand('workbench.action.files.saveAll').then(()=> {
         let command = '\'var app = Application("Unity"); app.activate(); delay(0.15); sys = Application("System Events"); sys.keystroke("p", { using: "command down"});\''
         child_process.exec('osascript -l JavaScript -e ' + command);
+      });
     });
-
     context.subscriptions.push(disposable);
+    
+    
 }
 
 // this method is called when your extension is deactivated
